@@ -37,7 +37,7 @@ from yolov5.utils.general import (LOGGER, check_img_size, non_max_suppression, s
                                   check_imshow, xyxy2xywh, increment_path, strip_optimizer, colorstr, print_args, check_file)
 from yolov5.utils.torch_utils import select_device, time_sync
 from yolov5.utils.plots import Annotator, colors, save_one_box
-from Yolov5_StrongSORT_OSNet2.trackers.multi_tracker_zoo import create_tracker
+from Yolov5_StrongSORT_OSNet.trackers.multi_tracker_zoo import create_tracker
 
 # remove duplicated stream handler to avoid duplicated logging
 logging.getLogger().removeHandler(logging.getLogger().handlers[0])

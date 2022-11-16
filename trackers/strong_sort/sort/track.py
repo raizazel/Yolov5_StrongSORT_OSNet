@@ -1,7 +1,7 @@
 # vim: expandtab:ts=4:sw=4
 import cv2
 import numpy as np
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.sort.kalman_filter import KalmanFilter
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.kalman_filter import KalmanFilter
 
 
 class TrackState:

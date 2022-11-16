@@ -6,11 +6,11 @@ import gdown
 from os.path import exists as file_exists, join
 import torchvision.transforms as transforms
 
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.sort.nn_matching import NearestNeighborDistanceMetric
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.sort.detection import Detection
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.sort.tracker import Tracker
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.nn_matching import NearestNeighborDistanceMetric
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.detection import Detection
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.tracker import Tracker
 
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.reid_multibackend import ReIDDetectMultiBackend
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.reid_multibackend import ReIDDetectMultiBackend
 
 from yolov5.utils.general import xyxy2xywh
 

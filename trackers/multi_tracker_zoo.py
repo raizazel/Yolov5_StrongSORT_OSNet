@@ -1,7 +1,7 @@
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.utils.parser import get_config
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.strong_sort import StrongSORT
-# from Yolov5_StrongSORT_OSNet2.trackers.ocsort.ocsort import OCSort
-# from Yolov5_StrongSORT_OSNet2.trackers.bytetrack.byte_tracker import BYTETracker
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.utils.parser import get_config
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.strong_sort import StrongSORT
+# from Yolov5_StrongSORT_OSNet.trackers.ocsort.ocsort import OCSort
+# from Yolov5_StrongSORT_OSNet.trackers.bytetrack.byte_tracker import BYTETracker
 
 
 def create_tracker(tracker_type, appearance_descriptor_weights, device, half):

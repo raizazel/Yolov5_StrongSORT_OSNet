@@ -36,8 +36,8 @@ import logging
 from yolov5.utils.torch_utils import select_device
 from yolov5.models.common import DetectMultiBackend
 from yolov5.utils.general import LOGGER, colorstr, check_requirements, check_version
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.deep.models import build_model
-from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.deep.reid_model_factory import get_model_name, load_pretrained_weights
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.deep.models import build_model
+from Yolov5_StrongSORT_OSNet.trackers.strong_sort.deep.reid_model_factory import get_model_name, load_pretrained_weights
 
 # remove duplicated stream handler to avoid duplicated logging
 logging.getLogger().removeHandler(logging.getLogger().handlers[0])
