@@ -9,9 +9,9 @@ import torch.nn.functional as F
 from yolov5.utils.general import xywh2xyxy, xyxy2xywh
 
 
-from trackers.bytetrack.kalman_filter import KalmanFilter
-from trackers.bytetrack import matching
-from trackers.bytetrack.basetrack import BaseTrack, TrackState
+from Yolov5_StrongSORT_OSNet2.trackers.bytetrack.kalman_filter import KalmanFilter
+from Yolov5_StrongSORT_OSNet2.trackers.bytetrack import matching
+from Yolov5_StrongSORT_OSNet2.trackers.bytetrack.basetrack import BaseTrack, TrackState
 
 class STrack(BaseTrack):
     shared_kalman = KalmanFilter()

@@ -1,7 +1,7 @@
-from trackers.strong_sort.utils.parser import get_config
-from trackers.strong_sort.strong_sort import StrongSORT
-from trackers.ocsort.ocsort import OCSort
-from trackers.bytetrack.byte_tracker import BYTETracker
+from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.utils.parser import get_config
+from Yolov5_StrongSORT_OSNet2.trackers.strong_sort.strong_sort import StrongSORT
+# from Yolov5_StrongSORT_OSNet2.trackers.ocsort.ocsort import OCSort
+# from Yolov5_StrongSORT_OSNet2.trackers.bytetrack.byte_tracker import BYTETracker
 
 
 def create_tracker(tracker_type, appearance_descriptor_weights, device, half):
@@ -9,7 +9,6 @@ def create_tracker(tracker_type, appearance_descriptor_weights, device, half):
         # initialize StrongSORT
         cfg = get_config()
         cfg.merge_from_file('trackers/strong_sort/configs/strong_sort.yaml')
-
         strongsort = StrongSORT(
             appearance_descriptor_weights,
             device,
@@ -24,21 +23,21 @@ def create_tracker(tracker_type, appearance_descriptor_weights, device, half):
 
         )
         return strongsort
-    elif tracker_type == 'ocsort':
-        ocsort = OCSort(
-            det_thresh=0.45,
-            iou_threshold=0.2,
-            use_byte=False 
-        )
-        return ocsort
-    elif tracker_type == 'bytetrack':
-        bytetracker = BYTETracker(
-            track_thresh=0.6,
-            track_buffer=30,
-            match_thresh=0.8,
-            frame_rate=30
-        )
-        return bytetracker
+    # elif tracker_type == 'ocsort':
+    #     ocsort = OCSort(
+    #         det_thresh=0.45,
+    #         iou_threshold=0.2,
+    #         use_byte=False 
+    #     )
+    #     return ocsort
+    # elif tracker_type == 'bytetrack':
+    #     bytetracker = BYTETracker(
+    #         track_thresh=0.6,
+    #         track_buffer=30,
+    #         match_thresh=0.8,
+    #         frame_rate=30
+    #     )
+    #     return bytetracker
     else:
         print('No such tracker')
         exit()
