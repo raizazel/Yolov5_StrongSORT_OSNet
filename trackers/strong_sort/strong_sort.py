@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import torch
 import sys
@@ -9,8 +10,6 @@ import torchvision.transforms as transforms
 from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.nn_matching import NearestNeighborDistanceMetric
 from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.detection import Detection
 from Yolov5_StrongSORT_OSNet.trackers.strong_sort.sort.tracker import Tracker
-
-from Yolov5_StrongSORT_OSNet.trackers.strong_sort.reid_multibackend import ReIDDetectMultiBackend
 
 from yolov5.utils.general import xyxy2xywh
 
@@ -28,15 +27,13 @@ class StrongSORT(object):
                  ema_alpha=0.9
                 ):
 
-        self.model = ReIDDetectMultiBackend(weights=model_weights, device=device, fp16=fp16)
-        
         self.max_dist = max_dist
         metric = NearestNeighborDistanceMetric(
             "cosine", self.max_dist, nn_budget)
         self.tracker = Tracker(
             metric, max_iou_distance=max_iou_distance, max_age=max_age, n_init=n_init)
 
-    def update(self, dets,  ori_img):
+    def update(self, dets,  ori_img, features):
         
         xyxys = dets[:, 0:4]
         confs = dets[:, 4]
@@ -48,7 +45,8 @@ class StrongSORT(object):
         self.height, self.width = ori_img.shape[:2]
         
         # generate detections
-        features = self._get_features(xywhs, ori_img)
+        # features = self._get_features(xywhs, ori_img)
+        
         bbox_tlwh = self._xywh_to_tlwh(xywhs)
         detections = [Detection(bbox_tlwh[i], conf, features[i]) for i, conf in enumerate(
             confs)]
